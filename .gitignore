@@ -1,0 +1,13 @@
+# Codex Sites deployment workspace and its local identity manifest
+.openai/
+sites/boardui-dashboard/
+.sites-checkout/
+.sites-checkout-*/
+
+# Craft Anything evidence and local project metadata
+_craft-anything-boardui/
+
+# Local Python preview caches
+__pycache__/
+*.pyc
+
