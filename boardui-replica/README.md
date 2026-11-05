@@ -2,6 +2,8 @@
 
 一份原创的中文仪表盘设计系统展示站点，参考 BoardUI 中文展示页的页面结构与交互方向重新设计。品牌、文字、配色、样例数据与组件呈现均为独立实现。
 
+**线上预览：** [Frame Dashboard UI](https://boardui-dashboard-studio.wuwenlong1985123.chatgpt.site)
+
 ![首页仪表盘展示](assets/preview.png)
 
 ## 页面内容

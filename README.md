@@ -96,6 +96,8 @@ python -m http.server 8000
 
 同仓库还提供一份中文仪表盘设计系统展示页，参考 [BoardUI 中文页面](https://www.boardui.com/zh-hans) 的信息组织方式，重新设计了品牌、文案、色彩和组件样例。它作为独立静态页面发布在 Codex Sites；页面代码及本地预览方法见 [`boardui-replica/README.md`](boardui-replica/README.md)。
 
+**已发布站点：** [Frame Dashboard UI](https://boardui-dashboard-studio.wuwenlong1985123.chatgpt.site)
+
 本次页面研究使用了 [Craft Anything](https://github.com/storytold/craft-anything) 的 clean-room 模式采集访客可见页面状态和多屏宽截图。工具的构建代理无法在当前项目执行环境中创建应用文件，因此最终站点使用 Codex Sites 独立实现；没有将 BoardUI 页面源码、品牌图形或原文复制到项目中。
 
 ## 技术与边界
