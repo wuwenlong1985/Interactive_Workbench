@@ -124,19 +124,8 @@ if (canvas) {
   canvas.addEventListener('pointerleave', () => { targetX = 0; targetY = 0; });
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let paused = false;
-  const motionButton = document.querySelector('#toggle-model-motion');
-  if (motionButton) {
-    if (reduced) {
-      motionButton.textContent = '已遵循减少动态效果偏好';
-      motionButton.disabled = true;
-    } else {
-      motionButton.addEventListener('click', () => {
-        paused = !paused;
-        motionButton.textContent = paused ? '继续动画' : '暂停动画';
-      });
-    }
-  }
+
+
   const clock = new THREE.Clock();
   let visible = true;
   const visibility = new IntersectionObserver(entries => { visible = entries[0]?.isIntersecting ?? true; }, { threshold: 0.05 });
@@ -147,7 +136,7 @@ if (canvas) {
     const t = clock.getElapsedTime();
     pointerX += (targetX - pointerX) * 0.035;
     pointerY += (targetY - pointerY) * 0.035;
-    if (!reduced && !paused) {
+    if (!reduced && !window.__workbench3dPaused) {
       model.rotation.y = t * 0.13 + pointerX;
       model.rotation.x = Math.sin(t * 0.28) * 0.035 + pointerY;
       cube.rotation.y = 0.38 + t * 0.24;
