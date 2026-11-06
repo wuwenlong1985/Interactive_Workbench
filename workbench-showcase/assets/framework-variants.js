@@ -152,6 +152,10 @@ if (gallery) {
   login.className = 'screen-card';
   login.innerHTML = `<img loading="lazy" src="assets/login.jpg" alt="交互式工作台实际登录与欢迎页面"><div class="screen-meta"><div><b>登录与欢迎页</b><p>保留工作台实际的登录界面与品牌欢迎体验。</p></div><span class="number">SIGN IN</span></div>`;
   gallery.append(login);
+  const loginReference = document.createElement('article');
+  loginReference.className = 'screen-card supplied-login-reference';
+  loginReference.innerHTML = `<img loading="lazy" src="assets/login-reference.png" alt="用户提供的 HK 项目管理工作台登录界面参考图"><div class="screen-meta"><div><b>登录界面参考 · HK 项目管理工作台</b><p>补充一张完整的登录界面，便于并列观察欢迎区与表单布局。</p></div><span class="number">LOGIN REF</span></div>`;
+  gallery.append(loginReference);
 }
 $('#variantGallery')?.remove();
 
