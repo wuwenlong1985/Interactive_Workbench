@@ -4,7 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
-<title>交互式工作台 | Interactive Workbench V1.0</title>
+<title>交互式工作台·龙哥很忙</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
 :root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
@@ -1855,6 +1856,7 @@ function systemSettingsPage(tab){
 }
 function isMobile(){return window.innerWidth<=750}
 const WORKBENCH_ENTRY=['login','workspace','unified'].includes(document.body.dataset.entry)?document.body.dataset.entry:'unified';
+const SHOW_DEMO_LOGIN=new URLSearchParams(location.search).get('demo')==='1';
 const WORKBENCH_LOGIN_FILE='login.html';const WORKBENCH_INDEX_FILE='index.html';
 const AUTH_KEY='interactive-workbench-v1-session';
 const ACCOUNT_KEY='iw:v1:local-account';
@@ -1889,7 +1891,7 @@ function loadAuth(){
  }catch{}}
  return null;
 }
-let currentUser=loadAuth();
+let currentUser=SHOW_DEMO_LOGIN?null:loadAuth();
 let authBusy=false;
 // Always show sign-in by default. Registration is optional and never blocks the demo account.
 let authMode='signin';
@@ -2056,7 +2058,7 @@ function render(opts={}){
  const app=document.getElementById('app');
  if(currentUser){
   app.innerHTML=`<div id="workspace" class="workspace v6-root v1-root style-${state.style} ${state.navCollapsed?'nav-collapsed':''} ${state.mobileNav?'mobile-nav-open':''} ${state.shadow==='none'?'shadow-none':state.shadow==='strong'?'shadow-strong':''} density-${state.density}" style="${themeVars()}">${renderWorkspace()}</div>`;
- }else{app.innerHTML=renderLoginPage()}
+ }else{app.innerHTML=renderLoginPage();if(SHOW_DEMO_LOGIN){const account=document.getElementById('v6-account'),password=document.getElementById('v6-password');if(account)account.value=BUILTIN_DEMO.username;if(password)password.value=BUILTIN_DEMO_PASSWORD;syncPasswordMascot()}}
  document.documentElement.lang=state.lang==='zh'?'zh-CN':'en';
  const modal=document.getElementById('modal-root');modal.style.cssText=themeVars();
  const workspace=document.getElementById('workspace');
