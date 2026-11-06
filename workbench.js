@@ -170,6 +170,12 @@ const initTasks=[
  {id:8,title:DATA('响应式导航方案','Responsive navigation'),desc:DATA('完成桌面、平板、手机布局','Layouts across device sizes'),lane:'done',priority:'low',owner:'Alex',due:'10/27'}
 ];
 const settingsKeys=['style','mode','lang','accent','font','fontSize','radius','density','iconStyle','imageStyle','navCollapsed','navGroups','page','shadow','sidebarWidth','exportSections'];
+const showcaseParams=new URLSearchParams(location.search);
+const showcaseEmbed=showcaseParams.get('showcase')==='1';
+if(showcaseEmbed)document.documentElement.dataset.showcaseEmbed='true';
+const showcaseOverrides=showcaseEmbed?Object.fromEntries(settingsKeys.filter(k=>showcaseParams.has(k)).map(k=>[k,showcaseParams.get(k)])):{};
+if(showcaseOverrides.navCollapsed==='true')showcaseOverrides.navCollapsed=true;
+if(showcaseOverrides.navCollapsed==='false')showcaseOverrides.navCollapsed=false;
 let restored={};try{restored=JSON.parse(localStorage.getItem('interactive-workbench-v1')||localStorage.getItem('novaflow-ui-lab-v53')||localStorage.getItem('novaflow-ui-lab-v52')||localStorage.getItem('novaflow-ui-lab-v43')||localStorage.getItem('novaflow-ui-lab-v3')||'{}')||{}}catch{}
 // v5.4.1: migrate the previous default values only; preserve all other custom preferences.
 if(Number(restored.fontSize)===14)restored.fontSize=17;
@@ -178,12 +184,13 @@ const DEFAULT_ACCENT='#1677ff';
 // Existing profiles using the former shipped default purple should receive the new default blue.
 if(typeof restored.accent==='string'&&['#6254df','#6750a4'].includes(restored.accent.toLowerCase()))restored.accent=DEFAULT_ACCENT;
 const defaults={navGroups:{operations:true,workflows:true,design:true,system:true},style:'ant',mode:'light',lang:'zh',accent:DEFAULT_ACCENT,font:'system',fontSize:17,radius:12,density:'comfortable',iconStyle:'line',imageStyle:'gradient',navCollapsed:false,sidebarWidth:248,shadow:'soft',exportSections:['product','tokens','pages','components','interactions','responsive','ai']};
-const state={...defaults,...Object.fromEntries(settingsKeys.filter(k=>restored[k]!==undefined).map(k=>[k,restored[k]])),page:(PAGES.some(x=>x[0]===restored.page)?restored.page:'overview'),navGroups:{operations:true,workflows:true,design:true,system:true,...(restored.navGroups&&typeof restored.navGroups==='object'?restored.navGroups:{})},navQuery:'',navFlyoutGroup:null,chartType:'line',range:'7d',tableStatus:'all',tableSearch:'',tablePage:1,tableSort:'id',tableSortDir:1,tableSelected:[],rows:structuredClone(SAMPLE_ROWS),tasks:structuredClone(initTasks),agentQuery:'',agentFilter:'all',calendarOffset:0,calendarDate:new Date().toISOString().slice(0,10),events:[],componentTab:'all',accordion:0,step:1,loading:false,form:{name:'',email:'',type:'design',date:'',notes:'',budget:60,notify:true,agree:false},formError:'',selectedImage:null,selectedEffects:(()=>{try{return JSON.parse(localStorage.getItem('novaflow-ui-lab-saved-effects')||'[]')||[]}catch{return []}})(),iconQuery:'',iconCategory:'all',mediaTab:'all',progress:42,toastHistory:[],mobileNav:false,settingsOpen:false,settingsTab:'appearance'};
+const state={...defaults,...Object.fromEntries(settingsKeys.filter(k=>restored[k]!==undefined).map(k=>[k,restored[k]])),...showcaseOverrides,page:(showcaseOverrides.page&&PAGES.some(x=>x[0]===showcaseOverrides.page)?showcaseOverrides.page:PAGES.some(x=>x[0]===restored.page)?restored.page:'overview'),navGroups:{operations:true,workflows:true,design:true,system:true,...(restored.navGroups&&typeof restored.navGroups==='object'?restored.navGroups:{})},navQuery:'',navFlyoutGroup:null,chartType:'line',range:'7d',tableStatus:'all',tableSearch:'',tablePage:1,tableSort:'id',tableSortDir:1,tableSelected:[],rows:structuredClone(SAMPLE_ROWS),tasks:structuredClone(initTasks),agentQuery:'',agentFilter:'all',calendarOffset:0,calendarDate:new Date().toISOString().slice(0,10),events:[],componentTab:'all',accordion:0,step:1,loading:false,form:{name:'',email:'',type:'design',date:'',notes:'',budget:60,notify:true,agree:false},formError:'',selectedImage:null,selectedEffects:(()=>{try{return JSON.parse(localStorage.getItem('novaflow-ui-lab-saved-effects')||'[]')||[]}catch{return []}})(),iconQuery:'',iconCategory:'all',mediaTab:'all',progress:42,toastHistory:[],mobileNav:false,settingsOpen:false,settingsTab:'appearance'};
 if(!state.accent)state.accent=DEFAULT_ACCENT;
+if(!/^#[0-9a-f]{6}$/i.test(state.accent))state.accent=DEFAULT_ACCENT;
 state.sidebarWidth=Math.max(196,Math.min(420,Math.round(Number(state.sidebarWidth)||248)));
 
 if(!ICON_STYLES.some(x=>x[0]===state.iconStyle))state.iconStyle='line';
-function persist(){try{localStorage.setItem('interactive-workbench-v1',JSON.stringify(Object.fromEntries(settingsKeys.map(k=>[k,state[k]]))))}catch{}}
+function persist(){if(showcaseEmbed)return;try{localStorage.setItem('interactive-workbench-v1',JSON.stringify(Object.fromEntries(settingsKeys.map(k=>[k,state[k]]))))}catch{}}
 const yes=(c,a,b='')=>c?a:b;
 function btn(label,action,kind='',extra=''){return `<button type="button" class="btn ${kind}" data-action="${action}" ${extra}>${label}</button>`}
 function badge(status){let variants={running:['success',T('运行中','Running')],paused:['warning',T('已暂停','Paused')],draft:['neutral',T('草稿','Draft')],done:['success',T('已完成','Done')],high:['error',T('高优先级','High')],normal:['neutral',T('普通','Normal')],low:['success',T('低优先级','Low')]};let v=variants[status]||['neutral',status];return `<span class="badge ${v[0]} dot">${v[1]}</span>`}
@@ -556,6 +563,7 @@ function loadAuth(){
  return null;
 }
 let currentUser=loadAuth();
+if(showcaseEmbed&&!currentUser)currentUser={id:'showcase-preview',name:'展示访客',en:'Preview visitor',role:'Workspace preview'};
 let authBusy=false;
 // Always show sign-in by default. Registration is optional and never blocks the demo account.
 let authMode='signin';

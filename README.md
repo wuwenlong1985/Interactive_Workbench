@@ -67,7 +67,7 @@
 - **17 个工作视图**：覆盖仪表盘、组件、表格、表单、看板、日历、分析、智能体、素材、排版、动效和交付设置。
 - **可交互的组件样例**：包含按钮、输入、筛选、确认弹窗、进度、表格、通知与状态反馈。
 - **多种布局对比**：在统一内容与主题变量下浏览不同的信息层级和组件组织方式。
-- **八种框架与主题效果快照**：展示 Ant Design Pro、shadcn/ui、Material UI、Element Plus、Tabler、Bootstrap 5、AdminLTE 与 daisyUI 的不同导航、卡片、边框、密度和配色。
+- **八种设计体系页面对照**：展示 Ant Design Pro、shadcn/ui、Material UI、Element Plus、Tabler、Bootstrap 5、AdminLTE 与 daisyUI 的不同导航、卡片、边框和配色。展示站直接运行工作台页面并读取各自设置，不用一张默认主题截图重复冒充多套效果；这些名称对应工作台内建样式，不是加载独立的第三方组件库。
 - **可保存的本地方案**：在当前浏览器创建、更新、载入、比较、导入与导出方案。
 - **AI 设计交付**：把确认后的页面、组件、视觉规则和设计说明整理成 Markdown、JSON 或提示词。
 - **适配不同屏幕**：侧边导航、页面栅格和组件会随窄屏调整。
@@ -101,7 +101,7 @@ python -m http.server 8000
 
 ## 交互式工作台展示站点
 
-配套的 Codex Site 现已改为展示 Interactive Workbench 本身：工作台截图、17 个工作视图、8 种 UI 框架、主题色与密度预览、方案比较和 AI 交付能力都以本仓库内容为准。首屏提供 GitHub 开源项目跳转和仓库源码 ZIP 下载。
+配套的 Codex Site 展示 Interactive Workbench 本身：八个独立的工作台页面实例分别读取框架风格、主题色、亮暗模式与不同工作页面，页面文字和图表由浏览器现场渲染；登录页仍单独展示。首屏提供 GitHub 开源项目跳转和仓库源码 ZIP 下载。
 
 **展示页源码：** [`workbench-showcase/`](workbench-showcase/README.md)  
 **GitHub 开源项目：** [wuwenlong1985/Interactive_Workbench](https://github.com/wuwenlong1985/Interactive_Workbench)  
