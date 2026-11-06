@@ -1,123 +1,99 @@
 <div align="center">
 
-# Interactive Workbench
+<img src="workbench-showcase/assets/readme-hero.png" alt="交互式工作台品牌插画：设计面板、组件卡片与灵感狐狸" width="100%">
 
-### 把分散的界面灵感，整理成可比较、可组合、可交付的设计方案。
+# 交互式工作台·龙哥很忙
 
-一个面向产品、设计与研发协作的交互式工作台原型。
+### 把界面灵感变成可比较、可组合、可交付的设计决定
 
-<img src="docs/screenshots/01-workbench-overview.png" alt="Interactive Workbench 总览仪表盘" width="100%">
+一个面向产品、设计与研发协作的交互式前端工作台。用同一份真实内容比较不同框架、主题颜色和信息密度，再将确认的设计方案交给 AI 与研发继续实现。
 
-<p>
-  <strong>看全局</strong> · <strong>比方案</strong> · <strong>做交付</strong>
-</p>
+[🌐 打开官网体验](https://interactive-workbench-showcase.wuwenlong1985123.chatgpt.site/) · [🧭 直接打开工作台预览](https://interactive-workbench-showcase.wuwenlong1985123.chatgpt.site/Interactive_Workbench_V1.0.html?demo=1) · [⬇️ 下载 GitHub 源码 ZIP](https://github.com/wuwenlong1985/Interactive_Workbench/archive/refs/heads/main.zip)
+
+**17 个工作视图**　·　**8 种界面体系**　·　**7 档信息密度**　·　**MIT License**
 
 </div>
 
-## 项目价值
+> 封面为品牌氛围插画；下方界面图均为工作台实际页面截图。官网现已开放公开访问，不要求 GPT 登录。
 
-设计评审常常卡在“感觉不错”或“这个组件应该更紧凑”这样的口头讨论。Interactive Workbench 把关键决策放进一个可操作的界面：统一颜色、字体、圆角和密度，再并排比较不同组件结构，选出需要的版本，最后把结果整理成 AI 与研发都能继续使用的交付资料。
+## 为什么做这个工作台
 
-它的价值在于**把视觉讨论变成有上下文的选择**：团队可以看到同一组数据放进不同布局后的差异，及时发现信息层级、阅读顺序和空间密度的问题，再将确认的选择带入下一步实现。它是一套可浏览、可交互的前端原型和设计探索工具；不代表已连接真实业务数据或具备服务端协作能力。
+设计评审经常停留在“感觉更紧凑一些”或“换个框架试试”的口头沟通。工作台把讨论变成可见、可操作的比较：统一内容与主题变量，直接检查框架结构、组件状态、颜色与密度如何影响阅读，再收藏和组合选中的设计方案。
 
-## 从观察到交付
+它让团队更快回答三个问题：
 
-| 工作环节 | 工作台里的对应能力 | 解决的问题 |
+- **看清差异**：同一内容放到不同布局中，层级和阅读顺序有什么变化？
+- **固定决定**：颜色、字号、圆角、图标和密度哪些需要保留？
+- **推进实现**：怎样把评审结论交给 AI 或研发，减少重复解释？
+
+项目目前是可在浏览器运行的前端原型。页面使用演示数据，本地保存账号与方案；它没有服务端认证、云端同步或真实业务数据连接。
+
+## 实际界面
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/01-workbench-overview.png" alt="工作台总览"><br><strong>01 · 工作台总览</strong><br>状态指标、趋势和近期任务集中呈现。</td>
+    <td width="50%"><img src="docs/screenshots/02-component-gallery.png" alt="组件画廊"><br><strong>02 · 组件画廊</strong><br>对照常用控件、导航与交互反馈。</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/03-analytics-center.png" alt="数据分析中心"><br><strong>03 · 数据分析中心</strong><br>通过趋势、构成与转化路径组织信息。</td>
+    <td width="50%"><img src="docs/screenshots/04-design-studio.png" alt="方案实验室"><br><strong>04 · 方案实验室</strong><br>在统一主题条件下比较布局和组件组合。</td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="docs/screenshots/05-login.jpg" alt="交互式工作台登录页"><br><strong>05 · 登录与欢迎页</strong><br>品牌欢迎区、狐狸插画和登录表单构成首次进入体验。官网预览会预填体验账号；账号仅用于前端演示，不代表真实身份验证。</td>
+  </tr>
+</table>
+
+## 能力一览
+
+| 评审阶段 | 工作台能力 | 设计价值 |
 | --- | --- | --- |
-| 浏览场景 | 仪表盘、看板、日历、表格和分析页面 | 用真实任务视图讨论，而不是只看孤立控件 |
-| 对比选项 | 组件画廊与方案实验室 | 在相同主题和内容条件下比较不同结构 |
-| 固定规则 | 外观、布局、图标、字体与 AI 交付设置 | 将颜色、字号、圆角和密度作为共享变量 |
-| 形成方案 | 收藏、组合、保存、比较与导入导出 | 保留评审结论，让后续迭代有据可循 |
-| 交给实现 | Markdown、JSON 与提示词交付 | 让设计意图进入研发或 AI 编码流程 |
+| 浏览场景 | 总览、表格、表单、看板、日历、分析等 17 个工作视图 | 在真实任务上下文里讨论页面，而不是孤立控件 |
+| 比较方案 | 组件画廊与方案实验室 | 在同一份内容和主题下比较信息层级与组件结构 |
+| 固定规则 | 8 种内建框架风格、颜色、亮暗模式、字体、圆角与密度 | 把视觉决定变成可复用的设计变量 |
+| 组合交付 | 收藏、拼装、保存、对比、导入导出 | 保留评审结果，减少重复沟通 |
+| 进入实现 | 导出 Markdown、JSON 与 AI 设计说明 | 让 AI 和研发获得明确的页面与组件上下文 |
 
-## 界面一览
+框架风格包括 Ant Design Pro、shadcn/ui、Material UI、Element Plus、Tabler、Bootstrap 5、AdminLTE 和 daisyUI。它们是工作台内建的可比较样式，不代表加载了八套独立的第三方组件库。
 
-### 1. 工作台总览：把状态和趋势放在一起
+## 快速体验
 
-![工作台总览：指标卡、工作趋势和近期任务](docs/screenshots/01-workbench-overview.png)
+直接打开[官网体验](https://interactive-workbench-showcase.wuwenlong1985123.chatgpt.site/)，无需安装，也无需 GPT 登录。点击页面右上角“工作台预览”可进入预填体验账号的登录页：
 
-总览页把活跃智能体、今日任务、收入、成功率、趋势图和运行列表放进同一视野。适合团队快速判断当前工作状态，并定位需要继续查看的项目。
+- 账号：`demo`
+- 密码：`Demo@2026`
 
-### 2. 组件画廊：比较组件形态与交互
-
-![组件画廊：基础控件、导航和数据组件样例](docs/screenshots/02-component-gallery.png)
-
-组件画廊覆盖按钮、输入控件、导航、卡片、表格和反馈状态。组件分类与收藏交互可以帮助评审从“选一个喜欢的样式”继续到“这个方案由哪些部分组成”。
-
-### 3. 数据分析：让指标拥有对比和上下文
-
-![数据分析中心：趋势、渠道来源与转化漏斗](docs/screenshots/03-analytics-center.png)
-
-分析页面把趋势、流量来源、活动热力与转化路径放在一起，演示如何组织高密度信息。截图里的数字和记录均为界面演示数据。
-
-### 4. 方案实验室：在统一条件下做公平比较
-
-![方案实验室：固定主题变量后比较不同组件结构](docs/screenshots/04-design-studio.png)
-
-方案实验室支持在共同主题条件下查看多种框架风格，采用组件并逐步组合方案。设计师可以减少因主色、字号或圆角变化造成的干扰，集中讨论布局和表达本身。
-
-### 5. 登录与欢迎页：呈现第一次进入工作台的体验
-
-![Interactive Workbench 登录页面：品牌介绍、狐狸插画与账号表单](docs/screenshots/05-login.jpg)
-
-登录页把产品介绍、品牌视觉和账号入口放在同一个响应式版式中。图为隔离浏览器中实际打开的前端登录界面；演示账号只用于本地体验，不代表生产认证服务。
-
-## 主要能力
-
-- **17 个工作视图**：覆盖仪表盘、组件、表格、表单、看板、日历、分析、智能体、素材、排版、动效和交付设置。
-- **可交互的组件样例**：包含按钮、输入、筛选、确认弹窗、进度、表格、通知与状态反馈。
-- **多种布局对比**：在统一内容与主题变量下浏览不同的信息层级和组件组织方式。
-- **八种设计体系页面对照**：展示 Ant Design Pro、shadcn/ui、Material UI、Element Plus、Tabler、Bootstrap 5、AdminLTE 与 daisyUI 的不同导航、卡片、边框和配色。展示站直接运行工作台页面并读取各自设置，不用一张默认主题截图重复冒充多套效果；这些名称对应工作台内建样式，不是加载独立的第三方组件库。
-- **可保存的本地方案**：在当前浏览器创建、更新、载入、比较、导入与导出方案。
-- **AI 设计交付**：把确认后的页面、组件、视觉规则和设计说明整理成 Markdown、JSON 或提示词。
-- **适配不同屏幕**：侧边导航、页面栅格和组件会随窄屏调整。
+登录和数据都在当前浏览器中处理。请勿将体验账号用于真实业务，也不要在演示环境中保存敏感信息。
 
 ## 本地运行
 
-工作台是无需构建步骤的静态前端。建议通过本地 HTTP 服务访问：
+无需安装依赖。在仓库根目录启动静态 HTTP 服务：
 
 ```powershell
 python -m http.server 8000
 ```
 
-然后打开 `http://localhost:8000/`。
+浏览器访问 `http://localhost:8000/`。也可以只运行产品展示页：
 
-演示账号：`demo`  
-演示密码：`Demo@2026`
+```powershell
+python -m http.server 8000 --directory workbench-showcase
+```
 
-演示账号仅用于界面体验。账号数据与方案保存在浏览器本地存储中；项目没有服务端认证、云端同步或真实业务 API，不能把当前登录页当作生产环境的身份验证。
+访问 `http://localhost:8000/`。单文件工作台入口为 [`Interactive_Workbench_V1.0.html`](Interactive_Workbench_V1.0.html)。
 
-## 目录结构
+## 项目结构
 
 ```text
 .
-├── index.html                    # 工作台入口
-├── workbench.css                 # 页面样式与响应式布局
-├── workbench.js                  # 交互、组件与页面状态
-├── Interactive_Workbench_V1.0.html # 单文件分发版
-├── docs/screenshots/             # 实际界面截图
-└── workbench-showcase/           # 交互式工作台产品展示页与源码下载入口
+├── index.html                         # 工作台模块化入口
+├── workbench.css / workbench.js       # 样式、交互和页面逻辑
+├── Interactive_Workbench_V1.0.html    # 单文件体验版
+├── docs/screenshots/                  # 实际工作台页面截图
+└── workbench-showcase/                # 官网展示页、品牌图和对应源码
 ```
 
-## 交互式工作台展示站点
+## 技术与许可
 
-配套的 Codex Site 展示 Interactive Workbench 本身：八个独立的工作台页面实例分别读取框架风格、主题色、亮暗模式与不同工作页面，页面文字和图表由浏览器现场渲染；登录页仍单独展示。首屏提供 GitHub 开源项目跳转和仓库源码 ZIP 下载。
+项目使用原生 HTML、CSS 与 JavaScript，无需构建步骤。展示页的 3D 动效使用本地 Three.js 模块。工作台演示数据和方案保存在浏览器本地存储中；清除站点数据会移除这些本地记录。
 
-**展示页源码：** [`workbench-showcase/`](workbench-showcase/README.md)  
-**GitHub 开源项目：** [wuwenlong1985/Interactive_Workbench](https://github.com/wuwenlong1985/Interactive_Workbench)  
-**源码 ZIP：** [下载 main 分支](https://github.com/wuwenlong1985/Interactive_Workbench/archive/refs/heads/main.zip)
-
-**Codex Site：** [Interactive Workbench 展示页](https://interactive-workbench-showcase.wuwenlong1985123.chatgpt.site)
-
-## 技术与边界
-
-- 原生 HTML、CSS 与 JavaScript，无构建链和外部运行依赖。
-- 页面数据以演示样例为主，刷新后可能回到初始状态。
-- 账号与工作台项目保存在浏览器 `localStorage`，清除站点数据会移除本地方案。
-- 单文件 HTML 方便预览和分享；模块化源码更便于持续修改。
-- 项目由 MIT 许可证发布，详见 [`LICENSE`](LICENSE)。
-
-## 本地开发
-
-页面不需要安装依赖。修改 `workbench.css` 或 `workbench.js` 后刷新浏览器即可查看。
-
+项目采用 [MIT License](LICENSE)。欢迎体验、修改和提交建议。
