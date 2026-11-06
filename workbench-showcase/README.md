@@ -8,8 +8,9 @@
 - 新增实际登录页截图，展示品牌欢迎区与登录表单
 - 17 个工作视图、8 种设计体系、组件收藏拼装、统一设计 Token 与 AI 交付流程
 - 可切换 Ant Design Pro、shadcn/ui、Material UI、Element Plus、Tabler、Bootstrap 5、AdminLTE、daisyUI
+- 提供八张框架与主题色效果快照，差异落实到导航、侧栏、密度、卡片边框和阴影，并可点击同步到交互预览
 - 可切换主色、密度与深浅主题的工作台预览
-- 用登录页截图生成的程序化 Three.js 模型，含缓慢旋转、悬浮卡片、鼠标视差与暂停控制
+- 用总览、组件、分析和方案实验室真实截图组成的 3D 界面组，支持缓慢空间移动、鼠标视差与暂停控制
 - 首屏 GitHub 项目入口和 ZIP 源码下载按钮
 
 ## 本地运行
@@ -26,6 +27,8 @@ python -m http.server 8000 --directory workbench-showcase
 
 页面使用原生 HTML、CSS、JavaScript 与本地 Three.js 模块。工作台展示图来自本仓库 `docs/screenshots/` 的真实截图。框架主题选择器是交互式样式预览，不会动态安装八套框架依赖。
 
-3D 中心立方体由 [img2threejs/plugin-hello-cube](https://github.com/img2threejs/plugin-hello-cube) 的确定性图片到代码生成方式生成：截图哈希决定颜色，截图文件长度决定尺寸。其余工作台浮卡与轨道为本项目编写的 Three.js 场景代码。生成逻辑见 `tools/generate-workbench-cube.mjs`，依赖的 Three.js 版本为 `0.187.0`。许可证文件随 `vendor/` 一同提供。
+页面主要内容宽度在桌面浏览器中随窗口宽度保持 75%；窄屏下切换为近全宽，避免内容过窄。
+
+3D 场景将工作台总览、组件画廊、数据分析和方案实验室的真实截图作为面板纹理，在空间中分层摆放并加入轻微视差和浮动动画。场景使用本地 Three.js `0.187.0`，同时提供 CSS 3D 回退。它借鉴了 [img2threejs](https://github.com/img2threejs/img2threejs) 的图片驱动 3D 内容思路；页面展示的是工作台本身的界面，而不是抽象立方体。
 
 ZIP 按钮下载本仓库 GitHub `main` 分支源码。
