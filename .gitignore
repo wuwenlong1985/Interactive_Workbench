@@ -1,5 +1,6 @@
 # Codex Sites deployment workspace and its local identity manifest
 .openai/
+dist/
 sites/boardui-dashboard/
 .sites-checkout/
 .sites-checkout-*/
